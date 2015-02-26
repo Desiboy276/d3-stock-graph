@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<style type="text/css">
+			div.bar {
+				display: inline-block;
+				width: 20px;
+				height: 75px;
+				background-color: teal;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//start of d3 js script
+			d3.select('body').append('p').text('New paragraph!');
+
+			var dataset = [5, 10, 15, 20, 25];
+			d3.select('body').selectAll('div')
+				.data(dataset)
+				.enter()
+				.append('div')
+				.attr('class', 'bar')
+				.style('height', function(d) {
+					var barHeight = d * 5; //scale by factor of 5 
+					return barHeight + 'px';
+				})
+				.style('margin-right', '10px');  //add spacing between bars
+
+		</script>
+
+		<!-- <div class="bar"></div> -->
+	</body>
+</html>
